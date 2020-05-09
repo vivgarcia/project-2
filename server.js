@@ -22,8 +22,8 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-var authRoute = require('./routes/auth.js')(app);
-require('./config/passport/passport')(passport, models.user);
+var authRoute = require('./routes/auth.js')(app, passport);
+require('./config/passport/passport')(passport, models.user); //passport strategies 
 
 var syncOptions = { force: false };
 
