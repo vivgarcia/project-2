@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "h1j83ljlksywa8f6",
-    "password": "dbPassword",
+    "password": "fc5c4x6waia5aldz",
     "database": "tre16k685p2jkzbc",
     "host": "ijj1btjwrd3b7932.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
     "username": "h1j83ljlksywa8f6",
-    "password": "dbPassword",
+    "password": "fc5c4x6waia5aldz",
     "database": "tre16k685p2jkzbc",
     "host": "ijj1btjwrd3b7932.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql",
