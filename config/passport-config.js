@@ -19,10 +19,12 @@ function initialize(passport) {
     }
   }
 
-  passport.use(new LocalStrategy({ usernameField: "email"}),
-  authenticateUser);
-  passport.serializeUser((user, done) => { });
-  passport.desearializeUser((user, done) => { });
+  passport.use(new LocalStrategy({ usernameField: "email"},
+  authenticateUser));
+  passport.serializeUser((user, done) => done(null, user.id));
+  passport.deserializeUser((user, done) => {
+    return done(null, getUserById(id));
+  });
 }
 
 module.exports = initialize;
