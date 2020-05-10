@@ -40,16 +40,19 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
+// Will load dashboard after user signs in
 app.get("/", function (req, res) {
-  console.log("Made it to dash");
-  console.log(req.user);
+  //console.log("Made it to dash");
+  //console.log(req.user);
   res.render("dashboard", { username: req.user.username });
 });
 
+// Renders sign in page
 app.get("/signin", function (req, res) {
   res.render("signin");
 });
 
+// Will attempt to authenticate user provided account info with passport-config.js
 app.post(
   "/signin",
   passport.authenticate("local", {
@@ -59,6 +62,7 @@ app.post(
   })
 );
 
+// Renders register page
 app.get("/signup", function (req, res) {
   res.render("signup");
 });
