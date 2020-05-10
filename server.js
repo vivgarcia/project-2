@@ -6,6 +6,12 @@ var passport = require("passport");
 var flash = require("express-flash");
 var session = require("express-session");
 var db = require("./models");
+var methodOverride = require('method-override');
+
+var Users = db.User;
+
+var initializePassport = require("./config/passport-config");
+initializePassport(passport, Users);
 
 var Users = db.User;
 
@@ -29,6 +35,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(methodOverride("_method"))
 
 // Handlebars
 app.engine(
@@ -41,34 +48,35 @@ app.set("view engine", "handlebars");
 
 // Routes
 // Will load dashboard after user signs in
-app.get("/", function (req, res) {
+app.get("/", checkSignedIn, function(req, res) {
   //console.log("Made it to dash");
   //console.log(req.user);
   res.render("dashboard", { username: req.user.username });
 });
 
 // Renders sign in page
-app.get("/signin", function (req, res) {
+app.get("/signin", checkNotSignedIn, function(req, res) {
   res.render("signin");
 });
 
 // Will attempt to authenticate user provided account info with passport-config.js
 app.post(
   "/signin",
+  checkNotSignedIn,
   passport.authenticate("local", {
     successRedirect: "/",
-    failureRedirect: "/signup",
+    failureRedirect: "/signin",
     failureFlash: true
   })
 );
 
 // Renders register page
-app.get("/signup", function (req, res) {
+app.get("/signup", checkNotSignedIn, function(req, res) {
   res.render("signup");
 });
 
 // Route for registering user
-app.post("/signup", function (req, res) {
+app.post("/signup", checkNotSignedIn, function(req, res) {
   console.log("Sign up called");
   try {
     console.log(req.body.password);
@@ -94,6 +102,27 @@ app.post("/signup", function (req, res) {
     res.redirect("/signup");
   }
 });
+
+//logs the user out and redirects to signin page 
+app.delete('/logout', (req, res) => {
+  req.logOut()
+  res.redirect('/signin')
+})
+
+//redirects user if they are not logged in
+function checkSignedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect("/signin");
+}
+
+function checkNotSignedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return res.redirect("/");
+  }
+  next();
+}
 
 var syncOptions = { force: false };
 
