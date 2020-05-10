@@ -10,14 +10,6 @@ module.exports = function(sequelize, DataTypes) {
         notEmpty: true
       }
     },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        notEmpty: true
-      }
-    },
     name: {
       type: DataTypes.TEXT,
       allowNull: false,
