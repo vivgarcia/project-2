@@ -31,10 +31,8 @@ function initialize(passport, Users) {
   passport.serializeUser((user, done) => done(null, user.id));
   // Allows handlebars to access the user saved in session
   passport.deserializeUser((id, done) => {
-    Users.findByPk(id, function(err, user) {
-      //console.log("Made it here");
-      //console.log(err);
-      done(err, user);
+    Users.findByPk(id).then(function(user) {
+      done(null, user);
     });
   });
 }
