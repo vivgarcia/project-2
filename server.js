@@ -79,13 +79,11 @@ app.get("/signup", checkNotSignedIn, function(req, res) {
 app.post("/signup", checkNotSignedIn, function(req, res) {
   console.log("Sign up called");
   try {
-    console.log(req.body.password);
     var hashedPassword;
     // Takes user input password and encrypts it for storage
     bcrypt.hash(req.body.password, 10).then(function(hash) {
       // Store hash in your password DB.
       hashedPassword = hash;
-      console.log(hashedPassword);
       // Adds user to database
       Users.create({
         username: req.body.username,
