@@ -66,7 +66,7 @@ app.post(
   passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/signin",
-    failureFlash: true
+    failureFlash: true 
   })
 );
 
