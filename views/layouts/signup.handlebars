@@ -1,0 +1,32 @@
+<div>
+    <h2>Create an Account</h2>
+    <form action="/Sign up" , method="POST">
+        <div class="container">
+            <form>
+                <div id="usernameField">
+                <input type="text" class="form-control txtBox" id="createUsername" placeholder="Username" required>
+        </div>
+            <div id="nameField">
+                <input type="text" class="form-control txtBox" placeholder="Name" id="name" required>
+            </div>
+            <div id="passwordField">
+                <input type="password" class="form-control txtBox" placeholder="Password" id="createPassword" required>
+            </div>
+            <div id="emailField">
+                <input type="text" class="form-control txtBox" placeholder="email" id="email" required>
+            </div>
+        </form>
+
+        <form action="/action_page.php">
+            <select id="platform" class="form-control txtBox" size="1">
+                <option value="1">PC</option>
+                <option value="2">Playstation</option>
+                <option value="3">Xbox</option>
+            </select>
+        </form>
+        <div class="row text-center">
+            <button type="submit" id="Sign up" class="btn btn-secondary mb-2 customBtn">Sign up</button>
+        </div>
+        </div>
+    </form>
+</div>
