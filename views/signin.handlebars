@@ -1,11 +1,19 @@
 {{#if messages.error}}
   {{messages.error}}
 {{/if}}
+<div class="logo-title">
+  <img src="/images/logo.png" alt="logo">
+  <h2>Gamer Central</h2>
+</div>
 <form id="signin" name="signin" method="post" action="signin">
-  <label for="email">Email Address</label>
-  <input class="text" name="email" type="text" />
-  <label for="password">Password</label>
-  <input name="password" type="password" />
-  <input class="btn" type="submit" value="Sign In" />
+    <label for="email">Email Address</label>
+    <input class="text" name="email" type="text" />
+    
+    <label for="password">Password</label>
+    <input name="password" type="password" />
+    
+    <input class="btn" type="submit" value="Sign In" />
 </form>
-<button class="btn" type="submit"><a href="/signup">Register</a></button>
+<div class="signup-section">
+  <p>Haven't created an account yet?</p><button class="btn btn-secondary mb-2 customBtn" type="submit"><a href="/signup">Register</a></button>
+</div>  
