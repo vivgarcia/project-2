@@ -1,4 +1,6 @@
-require("dotenv").config();
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 var express = require("express");
 var exphbs = require("express-handlebars");
 var bcrypt = require("bcrypt");
@@ -46,7 +48,7 @@ app.set("view engine", "handlebars");
 app.get("/", checkSignedIn, function(req, res) {
   //console.log("Made it to dash");
   //console.log(req.user);
-  res.render("dashboard", { username: req.user.username });
+  res.render("index", { username: req.user.username });
 });
 
 // Renders sign in page
@@ -101,6 +103,31 @@ app.delete('/logout', (req, res) => {
   req.logOut()
   res.redirect('/signin')
 })
+
+//Display all posts
+app.get("/api/all", function(req, res) {
+  Post.findAll({}).then(function(results) {
+    res.json(results);
+  });
+});
+
+//referencing models folder
+var Post = require("./models/post.js")
+
+// Add a Post
+app.post("/api/new", function(req, res) {
+  console.log("User Posts:");
+  console.log(req.body);
+
+  Post.create({
+    username: req.body.username,
+    body: req.body.body,
+    category: req.body.category, 
+    created_at: req.body.created_at
+  }).then(function(results) {
+    res.end();
+  });
+});
 
 //redirects user if they are not logged in
 function checkSignedIn(req, res, next) {
