@@ -28,6 +28,7 @@ input {
     align-content: center;
     color: #fff;
     padding:10px;
+    margin: 10px;
 }
 
 .signInButton{
@@ -52,6 +53,7 @@ input {
     background: #46007D;
     color: white;
     
+    
 }
 
 #signin{
@@ -67,6 +69,10 @@ input {
 
 p {
     padding: 0;
+}
+h2{
+    font-weight: 900;
+    font-size: 48px;
 }
 
 .signup-section{
