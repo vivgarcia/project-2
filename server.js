@@ -1,8 +1,12 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-
+var bcrypt = require("bcrypt");
+var passport = require("passport");
+var flash = require("express-flash");
+var session = require("express-session");
 var db = require("./models");
+var methodOverride = require('method-override');
 
 var Users = db.User;
 
@@ -16,6 +20,17 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use(flash());
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(methodOverride("_method"))
 
 // Handlebars
 app.engine(
@@ -82,7 +97,7 @@ app.post("/signup", checkNotSignedIn, function(req, res) {
 });
 
 //logs the user out and redirects to signin page 
-app.delete('/logout',(req, res) => {
+app.delete('/logout', (req, res) => {
   req.logOut()
   res.redirect('/signin')
 })
@@ -111,8 +126,8 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
+db.sequelize.sync(syncOptions).then(function () {
+  app.listen(PORT, function () {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
