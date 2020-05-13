@@ -102,7 +102,7 @@ app.post("/signup", checkNotSignedIn, function(req, res) {
 });
 
 //logs the user out and redirects to signin page 
-app.delete('/logout',(req, res) => {
+app.delete('/logout', (req, res) => {
   req.logOut()
   res.redirect('/signin')
 })
