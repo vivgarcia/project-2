@@ -21,11 +21,23 @@ body {
 
 input {
     background-color: #333333;
-    border: 0;
+    border: 1px #fff solid;
     border-radius: 50px;
     width: 292px;
     height: 50px;
     align-content: center;
+    color: #fff;
+    padding:10px;
+}
+
+.signInButton{
+    margin: 10px;
+    background-color: #fff;
+    color: #46007D;
+}
+.signInButton:hover{
+    color: #fff;
+    background-color: #46007D;
 }
 
 .customBtn,
@@ -40,8 +52,12 @@ input {
     background: #46007D;
     color: white;
     
-
 }
+
+#signin{
+    text-align: center;
+}
+
 
 .modal-content {
     background-color: rgba(97, 15, 160, 0.9);
@@ -51,4 +67,8 @@ input {
 
 p {
     padding: 0;
+}
+
+.signup-section{
+    text-align: center;
 }
