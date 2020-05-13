@@ -48,7 +48,7 @@ app.set("view engine", "handlebars");
 app.get("/", checkSignedIn, function(req, res) {
   //console.log("Made it to dash");
   //console.log(req.user);
-  res.render("dashboard", { username: req.user.username });
+  res.render("index", { username: req.user.username });
 });
 
 // Renders sign in page
