@@ -1,4 +1,6 @@
-require("dotenv").config();
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 var express = require("express");
 var exphbs = require("express-handlebars");
 var bcrypt = require("bcrypt");
