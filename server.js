@@ -13,11 +13,6 @@ var Users = db.User;
 var initializePassport = require("./config/passport-config");
 initializePassport(passport, Users);
 
-var Users = db.User;
-
-var initializePassport = require("./config/passport-config");
-initializePassport(passport, Users);
-
 var app = express();
 var PORT = process.env.PORT || 3000;
 
