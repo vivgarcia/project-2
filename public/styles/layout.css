@@ -9,12 +9,15 @@ body {
 }
 
 .navbar {
-    padding-left: 150px;
-    padding-right: 150px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 75px;
+
 }
 
 .navbar-dark {
     background-image: linear-gradient(to right, rgb(149, 17, 189), rgb(42, 3, 65));
+    
 }
 
 .fas,
