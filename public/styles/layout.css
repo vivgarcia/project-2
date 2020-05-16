@@ -43,6 +43,12 @@ body {
 .logo {
     padding-right: 25px;
 }
+.card-title {
+    background-color:  rgb(42, 3, 65);
+    color: #fff;
+    padding: 10px;
+    font-size: 18px;
+}
 
 .input-group {
     max-width: 40%;

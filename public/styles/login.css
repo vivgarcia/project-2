@@ -52,8 +52,7 @@ input {
 .customBtn {
     background: #46007D;
     color: white;
-    
-    
+    text-align: center;
 }
 
 #signin{

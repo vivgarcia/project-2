@@ -1,11 +1,14 @@
-{{#if messages.error}}
+{{!-- {{#if messages.error}}
   {{messages.error}}
-{{/if}}
+{{/if}} --}}
 <div class="logo-title text-center">
   <img src="/images/logo.png" alt="logo">
   <h2>Gamer Central</h2>
 </div>
 <form id="signin" name="signin" method="post" action="signin">
+  {{#if messages.error}}
+    {{messages.error}}
+  {{/if}}
     {{!-- <label for="email">Email Address</label> --}}
     <br>
     <input class="text" name="email" type="text" placeholder="Email Address"/>
@@ -15,7 +18,8 @@
     <input name="password" type="password" placeholder="Password"/>
     <br>
     <input class="btn signInButton" type="submit" value="Sign In" />
+    <div class="signup-section text-center">
+      <p>Haven't created an account yet?</p><a href="/signup"><button class="btn mb-2 customBtn" type="submit">Register </button></a>
+    </div> 
 </form>
-<div class="signup-section text-center">
-  <p>Haven't created an account yet?</p><a href="/signup"><button class="btn mb-2 customBtn" type="submit">Register </button></a>
-</div>  
+ 
