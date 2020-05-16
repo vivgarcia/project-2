@@ -11,6 +11,7 @@ var db = require("./models");
 var methodOverride = require('method-override');
 
 var Users = db.User;
+var Post = db.Post;
 
 var initializePassport = require("./config/passport-config");
 initializePassport(passport, Users);
@@ -45,11 +46,33 @@ app.set("view engine", "handlebars");
 
 // Routes
 // Will load dashboard after user signs in
-app.get("/", checkSignedIn, function(req, res) {
+app.get("/", checkSignedIn, async function(req, res) {
   //console.log("Made it to dash");
   //console.log(req.user);
-  res.render("index", { username: req.user.username });
+  var Posts = await Post.findAll({
+    order: [
+      ['createdAt', 'DESC']
+    ]
+  })
+  // console.log(Posts[0].username);
+  res.render("index", {
+    username: req.user.username,
+    email: req.user.email,
+    platform: req.user.platform,
+    Posts: Posts
+  });
 });
+
+// Adds new post to database
+app.post("/", function(req, res) {
+  Post.create({
+    username: req.user.username,
+    body: req.body.postText,
+    category: req.user.platform
+  }).then(
+    res.redirect("/")
+  )
+})
 
 // Renders sign in page
 app.get("/signin", checkNotSignedIn, function(req, res) {
