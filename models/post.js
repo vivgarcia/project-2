@@ -16,12 +16,6 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    created_at: {
-      type:DataTypes.DATETIME,
-      validate: {
-        notEmpty: true
-      },
-    },
     category: {
       type: DataTypes.TEXT,
       allowNull: false
