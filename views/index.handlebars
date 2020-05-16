@@ -60,7 +60,7 @@
           <div class="card-footer">
             <div class="profile-change">
               <form action="/add-game", method="POST">
-              <input type="text" class="form-control txtBox" placeholder="New Game" name="game">  
+              <input type="text" class="form-control txtBox" placeholder="New Game" name="game" id="gameInput">  
               </div>
               </div>
               <button class="btn btn-block" id="addNewGame">Add New</button>
@@ -129,6 +129,12 @@
 					<textarea class="form-control" id="wallPost" rows="2" placeholder="Write a post..."></textarea>
 					<a href="#"><button class="btn customBtn">Post</button></a>
 				</div>
+        <div class="card">
+          <div class="card-title">{{ username }}</div>
+          <div class="card-body">
+            {{ post }}
+          </div>
+        </div>
 				<div id="contentPosted" id="wallPost">
 					You have not made any posts yet. Write a post and click <i class="fas fa-pencil-alt" style="padding-left: 5px"></i>
 				</div>
