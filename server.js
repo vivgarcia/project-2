@@ -63,6 +63,7 @@ app.get("/", checkSignedIn, async function(req, res) {
   });
 });
 
+// Adds new post to database
 app.post("/", function(req, res) {
   Post.create({
     username: req.user.username,
