@@ -132,7 +132,8 @@
     <div class="col-sm-6">
       <div class="form-group">
         <form id="post" name="post" method="post" action="/">
-          <textarea name="postText" class="form-control" id="wallPost" rows="2" placeholder="Write a post..."></textarea>
+          <textarea name="postText" class="form-control" id="wallPost" rows="2"
+            placeholder="Write a post..."></textarea>
           <a href="#"><button class="btn customBtn">Post</button></a>
         </form>
       </div>
@@ -148,7 +149,18 @@
           {{ username }}
         </div>
         <div class="card-body">
-          {{ post }}
+          {{#each Posts}}
+          <div class="card">
+            <div class="card-title">
+              <svg class="bi bi-chat-dots" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"></svg>
+              {{this.dataValues.username}}
+            </div>
+            <div class="card-body">
+              {{this.dataValues.body}}
+            </div>
+          </div>
+          {{/each}}
         </div>
       </div>
 

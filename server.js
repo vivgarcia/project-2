@@ -54,7 +54,7 @@ app.get("/", checkSignedIn, async function(req, res) {
       ['createdAt', 'DESC']
     ]
   })
-  console.log(Posts);
+  // console.log(Posts[0].username);
   res.render("index", {
     username: req.user.username,
     email: req.user.email,
