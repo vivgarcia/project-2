@@ -1,187 +1,200 @@
 <!-- NAVIGATION BAR -->
-  <div class="nav-wrapper">
-    <nav class="navbar navbar-dark bg-dark">
-      <!--Search Bar -->
-      <div class="input-group input-group-sm justify-content-start">
-        <div class="logo">
-          <img src="/images/logo.png" style="height: 34px; width: 34px" href="#" alt="home">
-        </div>
-        <input type="text" class="form-control" aria-label="Search" aria-describedby="inputGroup-sizing-sm" placeholder="Search">
-        <div class="input-group-append">
-          <span class="input-group-text" id="inputGroup-sizing-sm"><a class="fas fa-search"></a></span>
-        </div>
+<div class="nav-wrapper">
+  <nav class="navbar navbar-dark bg-dark">
+    <!--Search Bar -->
+    <div class="input-group input-group-sm justify-content-start">
+      <div class="logo">
+        <img src="/images/logo.png" style="height: 34px; width: 34px" href="#" alt="home">
       </div>
-      <!--NAVIGATION ICONS-->
-      <ul class="nav justify-content-end">
-        <li class="nav-item">
-          <a class="nav-link fas fa-home" href="/login" data-toggle="tooltip" data-placement="bottom" title="Home"></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link fas fa-gamepad" href="/games" data-placement="bottom" action="/games", method="POST"  title="My Games"></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link fas fa-bell" href="#" data-toggle="tooltip" data-placement="bottom" title="Notifications"></a>
-        </li>
-        <li id="miniPic" class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-            aria-expanded="false">
-            <img src="/images/deadpool.jpg" alt="Profile Settings" class="rounded-circle" style="height: 25px; width: 25px"
-              data-toggle="tooltip" data-placement-"bottom" title="Profile Settings">
-          </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Settings & Privacy</a>
-						<a class="dropdown-item" href="/" action="/", method="POST">Logout</a>
-          </div>
-        </li>
-      </ul>
-    </nav>
-  </div>
-  
+      <input type="text" class="form-control" aria-label="Search" aria-describedby="inputGroup-sizing-sm"
+        placeholder="Search">
+      <div class="input-group-append">
+        <span class="input-group-text" id="inputGroup-sizing-sm"><a class="fas fa-search"></a></span>
+      </div>
+    </div>
+    <!--NAVIGATION ICONS-->
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link fas fa-home" href="/login" data-toggle="tooltip" data-placement="bottom" title="Home"></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link fas fa-gamepad" href="/games" data-placement="bottom" action="/games" , method="POST"
+          title="My Games"></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link fas fa-bell" href="#" data-toggle="tooltip" data-placement="bottom"
+          title="Notifications"></a>
+      </li>
+      <li id="miniPic" class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false">
+          <img src="/images/deadpool.jpg" alt="Profile Settings" class="rounded-circle"
+            style="height: 25px; width: 25px" data-toggle="tooltip" data-placement-"bottom" title="Profile Settings">
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Settings & Privacy</a>
+          <a class="dropdown-item" href="/" action="/" , method="POST">Logout</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</div>
+
 <div class="container">
-    <div class="row">
-      <!--USER PROFILE INFORMATION-->
-      <div class="profile-info col-sm-3">
-        <div class="info-card" style="max-width: 18rem;">
-          <img class="card-img-top rounded-circle" src="/images/deadpool.jpg" style="height: 160px; width: 160px"
-            alt="Profile Photo">
-          <div class="card-body">
-            <div id="userName">
-				<h5 class="user" style="font-weight: bold">Hi, {{username}} !</h5>
-			</div>
-			<div id="playerStyle">
-				<h6 class="player-level" style="font-style: italic; color: rgb(149, 17, 189)"> <!-- PLAYER STYLE/LEVEL HERE --> </h6>
-			</div>
+  <div class="row">
+    <!--USER PROFILE INFORMATION-->
+    <div class="profile-info col-sm-3">
+      <div class="info-card" style="max-width: 18rem;">
+        <img class="card-img-top rounded-circle" src="/images/deadpool.jpg" style="height: 160px; width: 160px"
+          alt="Profile Photo">
+        <div class="card-body">
+          <div id="userName">
+            <h5 class="user" style="font-weight: bold">Hi, {{username}} !</h5>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item" id="itemAge">E-mail: {{email}}</li>
-            
-            <li class="list-group-item" id="itemPlatform">Platform: {{platform}}</li>
-          </ul>
-          <div class="card-footer">
-            <div class="profile-change">
-              <form action="/add-game", method="POST">
-              <input type="text" class="form-control txtBox" placeholder="New Game" name="game" id="gameInput">  
-              </div>
-              </div>
-              <button class="btn btn-block" id="addNewGame">Add New</button>
-          </form>
+          <div id="playerStyle">
+            <h6 class="player-level" style="font-style: italic; color: rgb(149, 17, 189)">
+              <!-- PLAYER STYLE/LEVEL HERE -->
+            </h6>
+          </div>
         </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" id="itemAge">E-mail: {{email}}</li>
 
-        <div class="game-list-wrapper" style="max-width: 18rem; max-height: 100%; text-align: center">
-          <h6 class="my-games-header" style="color: rgb(149, 17, 189)">My Games</h6>
-          <br>
-          <div class="card-body" id="gameCard">
-						<div id="gameTitle" style="font-size: 10px; color: rgb(178, 121, 235)">
-							<h5 class="game-title" style="font-size: 14px"> Red Dead Redemption 2<br>
+          <li class="list-group-item" id="itemPlatform">Platform: {{platform}}</li>
+        </ul>
+        <div class="card-footer">
+          <div class="profile-change">
+            <form action="/add-game" , method="POST">
+              <input type="text" class="form-control txtBox" placeholder="New Game" name="game" id="gameInput">
+          </div>
+        </div>
+        <button class="btn btn-block" id="addNewGame">Add New</button>
+        </form>
+      </div>
+
+      <div class="game-list-wrapper" style="max-width: 18rem; max-height: 100%; text-align: center">
+        <h6 class="my-games-header" style="color: rgb(149, 17, 189)">My Games</h6>
+        <br>
+        <div class="card-body" id="gameCard">
+          <div id="gameTitle" style="font-size: 10px; color: rgb(178, 121, 235)">
+            <h5 class="game-title" style="font-size: 14px"> Red Dead Redemption 2<br>
               Time To Beat: 142 hrs</h5>
-						</div>
+          </div>
 
-						<div class="icon-left">
-							<a class="fas fa-info-circle" href="#" data-toggle="tool-tip" data-placement="bottom" title="View Game Info"
-							 style="float: left"></a>
-						</div>
-						<div class="icon-right">
-							<a class="far fa-share-square" href="#" data-toggle="tool-tip" data-placement="bottom" title="Share this game"
-							 style="float: right"></a>
-						</div>
-					</div>
-
-					<div class="card-body" id="gameCard">
-						<div id="gameTitle" style="font-size: 10px; color: rgb(178, 121, 235)">
-							<h5 class="game-title" style="font-size: 14px"> Batman: Arkham Asylum<br>
-              Time To Beat: 25 hrs</h5>
-						</div>
-
-						<div class="icon-left">
-							<a class="fas fa-info-circle" href="#" data-toggle="tool-tip" data-placement="bottom" title="View Game Info"
-							 style="float: left"></a>
-						</div>
-						<div class="icon-right">
-							<a class="far fa-share-square" href="#" data-toggle="tool-tip" data-placement="bottom" title="Share this game"
-							 style="float: right"></a>
-						</div>
-					</div> 
-
-          <div class="card-body" id="gameCard">
-						<div id="gameTitle" style="font-size: 10px; color: rgb(178, 121, 235)">
-							<h5 class="game-title" style="font-size: 14px"> DOOM<br>
-              Time To Beat: 24 hrs</h5>
-						</div>
-
-						<div class="icon-left">
-							<a class="fas fa-info-circle" href="#" data-toggle="tool-tip" data-placement="bottom" title="View Game Info"
-							 style="float: left"></a>
-						</div>
-						<div class="icon-right">
-							<a class="far fa-share-square" href="#" data-toggle="tool-tip" data-placement="bottom" title="Share this game"
-							 style="float: right"></a>
-						</div>
-					</div> 
-      
+          <div class="icon-left">
+            <a class="fas fa-info-circle" href="#" data-toggle="tool-tip" data-placement="bottom" title="View Game Info"
+              style="float: left"></a>
+          </div>
+          <div class="icon-right">
+            <a class="far fa-share-square" href="#" data-toggle="tool-tip" data-placement="bottom"
+              title="Share this game" style="float: right"></a>
+          </div>
         </div>
 
+        <div class="card-body" id="gameCard">
+          <div id="gameTitle" style="font-size: 10px; color: rgb(178, 121, 235)">
+            <h5 class="game-title" style="font-size: 14px"> Batman: Arkham Asylum<br>
+              Time To Beat: 25 hrs</h5>
+          </div>
+
+          <div class="icon-left">
+            <a class="fas fa-info-circle" href="#" data-toggle="tool-tip" data-placement="bottom" title="View Game Info"
+              style="float: left"></a>
+          </div>
+          <div class="icon-right">
+            <a class="far fa-share-square" href="#" data-toggle="tool-tip" data-placement="bottom"
+              title="Share this game" style="float: right"></a>
+          </div>
+        </div>
+
+        <div class="card-body" id="gameCard">
+          <div id="gameTitle" style="font-size: 10px; color: rgb(178, 121, 235)">
+            <h5 class="game-title" style="font-size: 14px"> DOOM<br>
+              Time To Beat: 24 hrs</h5>
+          </div>
+
+          <div class="icon-left">
+            <a class="fas fa-info-circle" href="#" data-toggle="tool-tip" data-placement="bottom" title="View Game Info"
+              style="float: left"></a>
+          </div>
+          <div class="icon-right">
+            <a class="far fa-share-square" href="#" data-toggle="tool-tip" data-placement="bottom"
+              title="Share this game" style="float: right"></a>
+          </div>
+        </div>
 
       </div>
 
-      <!--NEWS FEED SECTION -->
-      <div class="col-sm-6">
-				<div class="form-group">
-					<textarea class="form-control" id="wallPost" rows="2" placeholder="Write a post..."></textarea>
-					<a href="#"><button class="btn customBtn">Post</button></a>
-				</div>
-        <div class="card">
-            <div class="card-title">
-                <svg class="bi bi-chat-dots" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" d="M2.678 11.894a1 1 0 01.287.801 10.97 10.97 0 01-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 01.71-.074A8.06 8.06 0 008 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 01-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 00.244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 01-2.347-.306c-.52.263-1.639.742-3.468 1.105z" clip-rule="evenodd"/>
-                  <path d="M5 8a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0z"/>
-                </svg> 
-                {{ username }}
+
+    </div>
+
+    <!--NEWS FEED SECTION -->
+    <div class="col-sm-6">
+      <div class="form-group">
+        <form id="post" name="post" method="post" action="/">
+          <textarea name="postText" class="form-control" id="wallPost" rows="2" placeholder="Write a post..."></textarea>
+          <a href="#"><button class="btn customBtn">Post</button></a>
+        </form>
+      </div>
+      <div class="card">
+        <div class="card-title">
+          <svg class="bi bi-chat-dots" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M2.678 11.894a1 1 0 01.287.801 10.97 10.97 0 01-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 01.71-.074A8.06 8.06 0 008 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 01-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 00.244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 01-2.347-.306c-.52.263-1.639.742-3.468 1.105z"
+              clip-rule="evenodd" />
+            <path d="M5 8a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0z" />
+          </svg>
+          {{ username }}
+        </div>
+        <div class="card-body">
+          {{ post }}
+        </div>
+      </div>
+
+    </div>
+
+    <!--GAME TRACKING-->
+    <div class="trend-wrapper col-sm-3">
+      <div class="card border-dark" style="max-width: 18rem;">
+        <div class="card-header text-center" id="sponsored-header" style="color: rgb(149, 17, 189); font-style: italic">
+          <h5>Sponsored</h5>
+        </div>
+        <div class="card-body">
+          <div class="new-sponsor">
+            <img class="sponsor-random"
+              src="https://cdn.images.dailystar.co.uk/dynamic/184/photos/236000/620x/Nintendo-Switch-Games-News-Massive-boost-for-Nintendo-games-ahead-of-Christmas-745333.jpg?r=5c0349f073453">
+            <p class="ad-sponsor-desc">Happy Holidays from Nintendo!</p>
           </div>
-          <div class="card-body">
-            {{ post }}
+          <br>
+          <div class="new-sponsor">
+            <img class="sponsor-random"
+              src="https://oyster.ignimgs.com/wordpress/stg.ign.com/2018/12/Out-This-WeekSMASH.png">
+            <p class="ad-sponsor-desc">Smash Ultimate: May 8th,2020</p>
+          </div>
+          <br>
+          <div class="new-sponsor">
+            <img class="sponsor-random" src="https://upload.wikimedia.org/wikipedia/en/0/06/Fallout_76_cover.jpg">
+            <p class="ad-sponsor-desc">Fallout 76 Controversy Continues</p>
+          </div>
+          <br>
+          <div class="new-sponsor">
+            <img class="sponsor-random" src="https://upload.wikimedia.org/wikipedia/en/0/0f/Just_Cause_4_cover.jpg">
+            <p class="ad-sponsor-desc">Just Cause 4 Releases</p>
+          </div>
+          <br>
+          <div class="new-sponsor">
+            <img class="sponsor-random"
+              src="https://cdn.vox-cdn.com/thumbor/6BdAPsDUOmvQ2ynYTWhm4AtmMvE=/0x0:1100x619/1200x800/filters:focal(462x222:638x398)/cdn.vox-cdn.com/uploads/chorus_image/image/52055017/the_game_awards.0.0.jpeg">
+            <p class="ad-sponsor-desc">VGAs: May 8th, 2020</p>
           </div>
         </div>
-
-			</div>
-
-      <!--GAME TRACKING-->
-      <div class="trend-wrapper col-sm-3">
-				<div class="card border-dark" style="max-width: 18rem;">
-					<div class="card-header text-center" id="sponsored-header" style="color: rgb(149, 17, 189); font-style: italic">
-						<h5>Sponsored</h5>
-					</div>
-					<div class="card-body">
-						<div class="new-sponsor">
-							<img class="sponsor-random" src="https://cdn.images.dailystar.co.uk/dynamic/184/photos/236000/620x/Nintendo-Switch-Games-News-Massive-boost-for-Nintendo-games-ahead-of-Christmas-745333.jpg?r=5c0349f073453">
-							<p class="ad-sponsor-desc">Happy Holidays from Nintendo!</p>
-						</div>
-            <br>
-            <div class="new-sponsor">
-							<img class="sponsor-random" src="https://oyster.ignimgs.com/wordpress/stg.ign.com/2018/12/Out-This-WeekSMASH.png">
-							<p class="ad-sponsor-desc">Smash Ultimate: May 8th,2020</p>
-						</div>
-            <br>
-            <div class="new-sponsor">
-							<img class="sponsor-random" src="https://upload.wikimedia.org/wikipedia/en/0/06/Fallout_76_cover.jpg">
-							<p class="ad-sponsor-desc">Fallout 76 Controversy Continues</p>
-						</div>
-            <br>
-            <div class="new-sponsor">
-							<img class="sponsor-random" src="https://upload.wikimedia.org/wikipedia/en/0/0f/Just_Cause_4_cover.jpg">
-							<p class="ad-sponsor-desc">Just Cause 4 Releases</p>
-						</div>
-            <br>
-            <div class="new-sponsor">
-							<img class="sponsor-random" src="https://cdn.vox-cdn.com/thumbor/6BdAPsDUOmvQ2ynYTWhm4AtmMvE=/0x0:1100x619/1200x800/filters:focal(462x222:638x398)/cdn.vox-cdn.com/uploads/chorus_image/image/52055017/the_game_awards.0.0.jpeg">
-							<p class="ad-sponsor-desc">VGAs: May 8th, 2020</p>
-						</div>
-					</div>
-				</div>
-			</div>
+      </div>
+    </div>
 
   </div>
-  </div>
-  
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-  crossorigin="anonymous"></script>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="/js/index.js"></script>
